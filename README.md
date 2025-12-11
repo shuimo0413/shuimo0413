@@ -134,9 +134,7 @@
 .glitch {
   animation: glitch 0.3s infinite;
 }
-
 </style>
-
 
 <!-- From Uiverse.io by 0xnihilism --> 
 <div class="card">
@@ -145,7 +143,7 @@
     后端+物联网设备爱好者
   </p>
   <form class="card__form">
-    <input required="" type="email" placeholder="" />
+    <input required type="email" placeholder="Your email" />
     <button class="card__button">Click me</button>
   </form>
 </div>
