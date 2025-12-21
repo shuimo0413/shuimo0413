@@ -1,6 +1,5 @@
 # 👋 Hi, I'm shuimo
-[![GitHub Streak](https://streak-stats.demolab.com/?user=shuimo0413&theme=dark&hide_border=true)](https://git.io/streak-stats)
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=shuimo0413&layout=compact&theme=dark&hide_border=true)](https://github.com/anuraghazra/github-readme-stats)
+
 
 ### 📌 关于我
 - 🎯 技术方向：**Java后端开发** **同时熟悉部分物联网**
