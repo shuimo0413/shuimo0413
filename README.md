@@ -5,9 +5,9 @@
 
 ## 📌 技术方向
 
-- Java 后端开发（微服务 / 分布式 / 高并发）
-
-- 物联网开发（设备通信 / 协议对接）
+- Java 后端开发
+- web 前端开发
+- 物联网开发
 
 - 大语言模型应用开发（RAG / 智能体）
 
@@ -15,7 +15,7 @@
 
 ### 后端核心
 
-Java、Spring Cloud、Spring Boot、Spring MVC、MyBatis、MyBatis\-Plus、Seata、Sentinel
+Java、Spring Cloud、Spring Boot、MyBatis、MyBatis\-Plus、Seata、Sentinel
 
 ### 数据存储
 
@@ -27,7 +27,7 @@ RabbitMQ、Judge0
 
 ### 物联网
 
-MQTT 协议、ESP32/ESP8266、设备通信、订阅 / 发布模式、QoS 服务质量等级
+MQTT 协议、ESP32/ESP8266、设备通信
 
 ### 前端基础
 
