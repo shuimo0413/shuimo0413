@@ -1,80 +1,119 @@
-# 👋 Hi, I am shuimo
+<div align="center">
 
+# shuimo
 
-专注于**Java 后端开发**，兼顾**物联网开发**与**大语言模型应用开发**，具备微服务、分布式系统、容器化部署实战经验，擅长从 0 到 1 搭建后端服务与物联网通信体系。
+河北工程技术学院 · 人工智能
 
-## 📌 技术方向
+后端 · 物联网 · LLM
 
-- Java 后端开发
-- web 前端开发
-- 物联网开发
+[博客](https://shuimo0413.github.io/) · [邮箱](mailto:1743355601@qq.com) · [GitHub](https://github.com/shuimo0413)
 
-- 大语言模型应用开发（RAG / 智能体）
+<br/>
 
-## 🔧 技术栈
+<img src="https://skillicons.dev/icons?i=java,spring,mysql,redis,docker,linux,nodejs,ts,python,vue,react,git" alt="stack" />
 
-### 后端核心
+</div>
 
-Java、Spring Cloud、Spring Boot、MyBatis、MyBatis\-Plus、Seata、Sentinel
+平常写得最多的是 Java / Spring 和 Node。课设、接设备、上班做业务，最后都落到接口、库表、缓存和部署上。模型相关的活也碰：简历解析、检索、小助手这类，不训大模型，主要是把现成的 API 接到真实业务里。前端能写 Vue / React，小程序用过 UniApp。服务器一般是 Debian / Ubuntu，Docker 自己打镜像、自己发。
 
-### 数据存储
+常用的大概是这些：Spring Boot、MyBatis-Plus、MySQL、Redis、RabbitMQ、Nacos、Gateway；Node 这边 Express、JWT、队列；设备用 MQTT 和 ESP8266 / ESP32；模型用 LangChain / LangGraph、Embedding、OCR。Git 和 Linux 是日常。
 
-MySQL、Redis（分布式锁 / 缓存优化）、Elasticsearch
+---
 
-### 中间件 \&amp; 消息队列
+## FindTA
 
-RabbitMQ、Judge0
+现在主要时间在 **FindTA** 上。这是给消费金融 / 风控猎头用的招聘系统，多租户 SaaS，已经在腾讯云跑着。仓库不公开。B 端是招聘工作台，C 端有网页和小程序，上面还有一层平台运营：租户、套餐、订单、渠道。
 
-### 物联网
+租户之间数据是切开的，登录带 JWT，权限按角色配，品牌、域名入口也可以按租户改。套餐限制次数和功能，付费走微信扫码，付完回调改订单状态。渠道会发邀请码和小程序码，用来看人是从哪进来的。
 
-MQTT 协议、ESP32/ESP8266、设备通信
+招聘作业收在候选人那个大弹窗里。列表筛完人，点进去就是初筛、约面试、写评价、发 Offer、走审批、办入职，时间线跟在后面。岗位页左边是机构树，岗位上挂评分卡，后面配岗打分和「岗找人」都用这套维度。驾驶舱是进系统后的首页，待办和图表，点一下能跳到某个人的某一环。
 
-### 前端基础
+简历 PDF、Word、图片都能传。图片先走 OCR 抽出字，再和文本一起丢给模型做结构化：学校、经历、技能这类拆开存。打开人还能做智能速读，对照某个岗位按评分卡几维打星，再加权合成总分。文件在腾讯云 COS 上。Word 预览是 LibreOffice 转成 PDF 再打开。批量导入、邮箱收取、扫码填表也有，扫码填的要等模型跑完才进可推荐池。
 
-Vue、JavaScript、HTML/CSS
+岗找人是单独的检索服务。人进人才库、改简历、解析完成，会异步写向量，文本没变就跳过。检索只在本租户里做：先 embedding 余弦粗排多捞一点，再按当前岗位评分卡加权截断。已入职、中止、还在分析中的人不会推出来。结果写成快照，下次进页面先看上次的名单，不会每次都烧一遍模型。业务后端负责鉴权和租户号，检索服务不直接暴露给前端。
 
-### 容器化 \&amp; 运维
+微信那边是 UniApp 小程序，登录、看板、候选人、岗位、套餐拆在分包里。服务号会发通知。统计按北京时间切天，区间用 `[start, end)`，驾驶舱和报表用同一套，免得对账差一天。解析、建索引这种慢活进 Redis 队列，接口先返回。
 
-Linux（CentOS/Ubuntu/Debian）、Docker、Docker Compose、SSH 远程管理
+部署是 Docker。云主机大概 4G 内存，不能在上面跑 Vite，前端在自己电脑 build 完再热更新容器。发版前预检配置和环境，发完打健康检查，避免只更了前端、后端逻辑其实没上去。
 
-### 版本控制 \&amp; 工具
+---
 
-Git、PostMan
+<div align="center">
 
-### AI 开发
+### 仓库
 
-Langchain、Spring AI、RAG 检索增强生成、MCP 工具调用、大语言模型智能体开发
+<table>
+  <tr>
+    <td>
+      <a href="https://github.com/shuimo0413/oj-docker-">
+        <img src="https://github-readme-stats.vercel.app/api/pin/?username=shuimo0413&repo=oj-docker-&theme=github_dark&hide_border=true" alt="oj" />
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/shuimo0413/Word-Network">
+        <img src="https://github-readme-stats.vercel.app/api/pin/?username=shuimo0413&repo=Word-Network&theme=github_dark&hide_border=true" alt="word-network" />
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://github.com/shuimo0413/BASpark">
+        <img src="https://github-readme-stats.vercel.app/api/pin/?username=shuimo0413&repo=BASpark&theme=github_dark&hide_border=true" alt="baspark" />
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/shuimo0413/yosuga-no-sora-remake">
+        <img src="https://github-readme-stats.vercel.app/api/pin/?username=shuimo0413&repo=yosuga-no-sora-remake&theme=github_dark&hide_border=true" alt="yosuga" />
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://github.com/shuimo0413/WeChatChatReader">
+        <img src="https://github-readme-stats.vercel.app/api/pin/?username=shuimo0413&repo=WeChatChatReader&theme=github_dark&hide_border=true" alt="wechat" />
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/shuimo0413/Iron-Magic-Elden-Ring">
+        <img src="https://github-readme-stats.vercel.app/api/pin/?username=shuimo0413&repo=Iron-Magic-Elden-Ring&theme=github_dark&hide_border=true" alt="elden-ring" />
+      </a>
+    </td>
+  </tr>
+</table>
 
-## 🚀 项目实战
+</div>
 
-|项目名称|技术栈|项目描述|项目地址|
-|---|---|---|---|
-|AI 智能校园 OJ 平台|SpringBoot、MySQL、Redis、FastAPI、Langchain、Mybatis\-Plus、Judge0、Docker|1\. 实现题目管理、多语言代码提交、多测试点判题、提交记录统计等核心 OJ 功能，支持 Java/Python 等多语言评测<br>2\. 基于 Langchain 开发 AI 智能体，支持多轮对话，可根据用户刷题历史分析水平并智能推荐适配题目<br>3\. 集成 Judge0 专业判题服务，精准返回代码运行时间、内存消耗及错误信息<br>4\. 采用 Spring @Async 实现异步判题，结合 Redis\+MySQL 分层架构，通过布隆过滤器、缓存预热解决缓存穿透 / 击穿 / 雪崩问题<br>5\. 针对高频查询创建 MySQL 索引优化 SQL 性能，实现用户认证、权限控制及完善的错误处理机制<br>6\. 基于 Docker\&amp;Docker Compose 实现项目一键式容器化部署|[GitHub](https://github.com/shuimo0413/oj-docker-)|
-|微服务全栈电商平台|SpringBoot、SpringCloud Alibaba、MyBatis\-Plus、MySQL、Redis、Elasticsearch、RabbitMQ、Seata、Gateway、Nacos、Docker|1\. 采用 SpringCloud Alibaba 微服务架构，拆分商品 / 订单 / 用户 / 搜索 / 支付等独立服务，实现服务解耦<br>2\. 基于 Nacos 完成服务注册发现与统一配置管理，Gateway 网关实现路由转发、权限校验与请求过滤<br>3\. 利用 Redis 构建分布式缓存，结合缓存预热、布隆过滤器优化缓存策略，提升接口响应速度<br>4\. 集成 Elasticsearch 实现商品全文检索，支持分词查询、结果高亮、多维度筛选与排序<br>5\. 基于 RabbitMQ 实现异步通信，完成订单创建、支付回调、库存扣减的解耦与流量削峰<br>6\. 引入 Seata 处理分布式事务，保障订单 \- 库存 \- 支付链路的数据最终一致性<br>7\. 采用 Docker 完成服务容器化，实现微服务集群的快速部署与运维|开发中|
-|Vue\+MQTT 上位机前端|Vue、MQTT、JavaScript、HTML/CSS|基于 Vue 开发的物联网上位机前端项目，适配 MQTT 订阅 / 发布模式，实现物联网设备的实时通信、数据可视化展示与设备状态监控，支持 QoS 服务质量等级配置，保障设备数据传输的可靠性|开发中|
+**[OJ](https://github.com/shuimo0413/oj-docker-)** 是校园判题站。Spring Boot 管题目、提交、用户；真正跑代码交给 Judge0，C / C++ / Java / Python 都能测，多测试点，返回时间和内存。判题走 `@Async`，提交先落库再排队，页面不用卡着等沙箱。题目和排行榜这类热点放 Redis，布隆过滤器挡一下乱查的 id。高频条件在 MySQL 上建了索引。里面有个 LangChain 助手，能看你做过的题，按标签和通过情况推下一题。整套用 Docker Compose 拉起来。
 
-## 📫 联系我
+**[词汇网络](https://github.com/shuimo0413/Word-Network)** 是背单词用的。前端 React，后端 Nest.js，词和词之间的形近、前缀、语义做成图，页面上用力导向铺开，可以按关系筛。背词是闪卡，进度按 SM-2 写在 IndexedDB 里，换电脑不会自动跟着走。旁边接了 DeepSeek，可以讲用法、编口诀、出例句、小测一下。词书可以换，比如四级。
 
-- 邮箱：[1743355601@qq\.com](mailto:1743355601@qq.com)
+**[BASpark](https://github.com/shuimo0413/BASpark)** 是 Windows 上的点击特效，对着《蔚蓝档案》界面那种粒子做的。壳子是 WPF，画面在 WebView2 里用 Canvas 画。鼠标点下去才起渲染，停手就休眠，尽量不占后台。可以配进程黑白名单，全屏游戏或某几个软件里自动把特效藏掉，免得打游戏还飘粒子。
 
-- 电话：15032976581
+**[缘之空 HD Remake](https://github.com/shuimo0413/yosuga-no-sora-remake)** 是 AVG 工程，不是从零写引擎。运行时是 Kirikiri + SDL2，游戏数据在 `data/`。Windows 能编，Android / iOS / 鸿蒙也有工程。主要是引擎适配、资源组织和跨端编译，体积不小。
 
-- GitHub：[shuimo0413](https://github.com/shuimo0413)
+**[WeChatChatReader](https://github.com/shuimo0413/WeChatChatReader)** 用来读已经打开的微信窗口：找到聊天气泡，OCR 把字抠出来。自己归档、检索聊天记录用，不是协议层抓包。
 
-- 个人博客：[shuimo0413\.github\.io](https://shuimo0413.github.io/)
+**[法环铁魔法](https://github.com/shuimo0413/Iron-Magic-Elden-Ring)** 是 Minecraft 1.21.1 NeoForge 模组，挂在 Iron's Spells 上加法环风格的咒。辉石弹、彗星头渲染、法术数值走配置。Java 21，自己的 Gradle。
 
-## 💪 个人能力
+物联网那条线是 [Vue 上位机](https://github.com/shuimo0413/-vue-mqtt-) 加 [Spring Boot 控 ESP8266 小车](https://github.com/shuimo0413/-springboot-mqtt-esp32-)。车和传感器走 MQTT 上报，网页订主题看实时数据、下指令，QoS 能调。从单片机到页面是通的。
 
-1. 精通 Java 基础及并发编程，熟悉 synchronized/volatile 等关键字，掌握线程池、ConcurrentHashMap 使用，了解 JVM 内存模型、垃圾回收与类加载机制
+[校园二手](https://github.com/shuimo0413/shuimo-mall) 是 Spring Boot 3 多模块：学号认证、发布、搜索、留言、校园卡结算、互评。图放 OSS。另外自己做过一个音乐知识库 RAG，FastAPI + LangGraph + Chroma，前端是 React 对话框。
 
-2. 深入理解 MySQL 底层原理，精通事务、索引、MVCC、存储引擎等核心知识点，具备数据库性能优化实战经验
+---
 
-3. 熟练使用 Spring 生态框架，理解 IOC/AOP/ 自动配置 / 循环依赖等核心原理，具备微服务架构设计与开发能力
+<div align="center">
 
-4. 熟悉 Linux 系统操作与远程管理，能独立完成环境部署、容器化构建与项目运维工作
+<table>
+  <tr>
+    <td>
+      <img src="https://github-readme-stats.vercel.app/api?username=shuimo0413&show_icons=true&theme=github_dark&hide_border=true" alt="stats" />
+    </td>
+    <td>
+      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=shuimo0413&layout=compact&theme=github_dark&hide_border=true&langs_count=8" alt="langs" />
+    </td>
+  </tr>
+</table>
 
-5. 掌握 Git 多人协作开发流程，能熟练完成代码提交、分支管理、合并与简单回滚操作
+<img src="https://komarev.com/ghpvc/?username=shuimo0413&style=flat-square&color=8b8b8b&label=views" alt="views" />
 
-6. 具备物联网 MQTT 协议实战经验，熟悉设备通信与上位机开发，能完成物联网系统的前后端对接
-
-7. 掌握大语言模型应用开发技巧，能基于 Langchain/Spring AI 开发 RAG、智能体等 AI 应用
+</div>
