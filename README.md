@@ -2,11 +2,13 @@
 
 # shuimo
 
-河北工程技术学院 · 人工智能
-
-后端 · 物联网 · LLM
+后端 · 物联网 · LLM · MC
 
 [博客](https://shuimo0413.github.io/) · [邮箱](mailto:1743355601@qq.com) · [GitHub](https://github.com/shuimo0413)
+
+<br/>
+
+<img src="https://skillicons.dev/icons?i=java,spring,mysql,redis,docker,linux,nodejs,ts,python,vue,react,git" alt="tech stack" />
 
 </div>
 
