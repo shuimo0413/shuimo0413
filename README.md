@@ -12,7 +12,7 @@
 
 </div>
 
-平常写得最多的是 Java / Spring 和 Node。课设、接设备、上班做业务，最后都落到接口、库表、缓存和部署上。模型相关的活也碰：简历解析、检索、小助手这类，不训大模型，主要是把现成的 API 接到真实业务里。前端能写 Vue / React，小程序用过 UniApp。服务器一般是 Debian / Ubuntu，Docker 自己打镜像、自己发。
+平常写得最多的是 Java / Spring 和 Node。课设、接设备、上班做业务，最后都落到接口、库表、缓存和部署上。模型相关的活也碰：简历解析、检索、小助手这类，主要是把现成的 API 接到真实业务里。前端能写 Vue / React，小程序用过 UniApp。服务器一般是 Debian / Ubuntu，Docker 自己打镜像、自己发。
 
 常用：Spring Boot、MyBatis-Plus、MySQL、Redis、RabbitMQ、Nacos、Gateway；Node 这边 Express、JWT、队列；设备用 MQTT 和 ESP8266 / ESP32；模型用 LangChain / LangGraph、Embedding、OCR。
 
